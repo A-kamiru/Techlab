@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    @apply font-sans;
+  }
+  body {
+    @apply bg-white text-ink antialiased leading-relaxed text-base;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+}
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-container px-6; }
+  .section-padding { @apply py-16 sm:py-24; }
+  .section-header { @apply mx-auto mb-10 sm:mb-14 max-w-[760px] text-center; }
+  .section-header h2 { @apply mb-4 text-[28px] font-extrabold tracking-tight text-primary-dark sm:text-[34px]; }
+  .section-header p { @apply text-base leading-relaxed text-ink-muted sm:text-lg; }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-transparent px-[26px] py-3.5 text-[15px] font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2;
+  }
+  .btn-primary { @apply bg-brand text-white shadow-btn-brand hover:-translate-y-px hover:bg-brand-hover hover:shadow-btn-brand-hover; }
+  .btn-secondary { @apply border-line bg-white text-primary-dark hover:border-slate-300 hover:bg-surface-subtle; }
+  .btn-text { @apply inline-flex items-center gap-1.5 p-0 font-bold text-brand transition-all hover:gap-2.5; }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
